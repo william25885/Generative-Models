@@ -1,0 +1,28 @@
+name: ddim
+# DDIM: Denoising Diffusion Implicit Models
+# Paper: https://arxiv.org/pdf/2010.02502
+# 
+# Key advantage: 10x-50x faster sampling than DDPM
+# Uses the SAME trained model as DDPM (no retraining needed!)
+
+scheduler:
+  num_timesteps: 1000  # T in the paper (same as DDPM)
+  beta_start: 1e-4  # β_1 (same as DDPM)
+  beta_end: 0.02  # β_T (same as DDPM)
+  eta: 1.0  # η: 1.0 for DDPM-like stochastic (better for multi-modal distributions like checkerboard)
+
+# Sampling configuration (DDIM-specific)
+sampling:
+  num_inference_steps: 50  # Much fewer steps than DDPM's 1000! (50-100 recommended)
+
+dataloader:
+  batch_size: 256
+  shuffle: true
+
+# Model config (same as DDPM - uses the same trained model)
+model:
+  input_dim: 2  # 2D points
+  hidden_dim: 512  # Must match DDPM training (256 → 512)
+  time_embed_dim: 128  # Must match DDPM training
+  time_embed_type: "sinusoidal"  # Must match DDPM training
+  time_conditioning: "add"  # Must match DDPM training (Time MLP)

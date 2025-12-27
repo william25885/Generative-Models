@@ -1,0 +1,23 @@
+name: ddpm
+scheduler:
+  num_timesteps: 1000  # T in the paper
+  beta_start: 1e-4  # β_1
+  beta_end: 0.02  # β_T
+dataloader:
+  batch_size: 256
+  shuffle: true
+model:
+  input_dim: 2  # 2D points
+  hidden_dim: 512  # Increased for better capacity (256 → 512)
+  time_embed_dim: 128  # Dimension of time embeddings
+  time_embed_type: "sinusoidal"  # "sinusoidal" or "learned"
+  time_conditioning: "add"  # "add" (Time MLP - bonus!) or "concat" (basic)
+  num_res_blocks: 4  # Number of residual blocks (with LayerNorm)
+trainer:
+  epochs: 7500
+  lr: 2e-4  # Reduced for better convergence (1e-3 → 2e-4)
+  weight_decay: 1e-5  # AdamW weight decay
+  beta1: 0.9  # AdamW beta1
+  beta2: 0.999  # AdamW beta2
+  log_every: 100  # Log metrics every 100 epochs
+  save_gif: true  # Save animated GIF of training progress

@@ -1,0 +1,28 @@
+name: meanflow
+# MeanFlow: Mean Flows for One-step Generative Modeling
+# Paper: https://arxiv.org/pdf/2505.13447
+#
+# Key advantage: 1-NFE (single function evaluation) generation
+# Uses linear interpolation path (Optimal Transport)
+
+dataloader:
+  batch_size: 256
+  shuffle: true
+
+model:
+  input_dim: 2  # 2D points
+  hidden_dim: 512  # Match DDPM for fair comparison
+  time_embed_dim: 128  # Dimension of time embeddings
+  num_res_blocks: 4  # Number of residual blocks
+
+trainer:
+  epochs: 7500  # Match DDPM for fair comparison
+  lr: 2e-4  # Learning rate
+  weight_decay: 1e-5  # AdamW weight decay
+  beta1: 0.9  # AdamW beta1
+  beta2: 0.999  # AdamW beta2
+  loss_type: huber  # "huber" or "mse"
+  t_beta: null  # Optional: [2.0, 1.0] for importance sampling
+  log_every: 100  # Log metrics every N epochs
+  save_gif: true  # Save animated GIF of training progress
+

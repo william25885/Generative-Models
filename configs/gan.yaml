@@ -1,0 +1,19 @@
+name: gan
+z_dim: 16  # Increased for better capacity
+dataloader:
+  batch_size: 256
+  shuffle: true
+generator:
+  hidden_dim: 256  # Increased capacity for better generation
+  output_scale: 5.0  # Scale factor for output (tanh range [-1,1] -> [-scale, scale])
+discriminator:
+  hidden_dim: 256  # Increased capacity for better discrimination
+  leaky_relu_slope: 0.2  # Negative slope for LeakyReLU
+trainer:
+  epochs: 10000  # More epochs for better convergence
+  lr: 2e-4  # Standard learning rate for GAN
+  weight_decay: 1e-5  # Small weight decay for AdamW (avoid over-regularization)
+  beta1: 0.5  # AdamW optimizer beta1 parameter (standard for GAN)
+  beta2: 0.999  # AdamW optimizer beta2 parameter
+  log_every: 100
+  save_gif: true  # Save animated GIF of training progress
