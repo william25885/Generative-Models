@@ -1,4 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/UPVOpvc0)
 # ML Assignment 4: Generative Models
 
 This repository contains the implementation for Assignment 4 of the Machine Learning (CSIE5043) course, Fall 2025, at National Taiwan University. In this assignment, we study generative modeling on 2D synthetic datasets by implementing and comparing three representative model families: GAN, DDPM, and DDIM. The primary objective is to train these models on the checkerboard dataset and evaluate their ability to learn and reproduce the target distribution. Implementing MeanFlow is optional and will be counted as extra credit.
