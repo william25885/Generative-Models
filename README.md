@@ -16,13 +16,13 @@ If you need additional packages, please obtain approval from the TA in advance.
 ## 🏋️ Training
 To start training:
 ```bash
-# Train DDPM (default)
+# Train DDPM
 uv run train.py -m ddpm
 
 # Train GAN
 uv run train.py -m gan
 
-# Train MeanFlow (bonus)
+# Train MeanFlow
 uv run train.py -m meanflow
 ```
 
@@ -54,7 +54,7 @@ bash scripts/run_problem_2a.sh
 # Problem 2b: DDIM
 bash scripts/run_problem_2b.sh
 
-# Advanced (Bonus): MeanFlow
+# Advanced: MeanFlow
 bash scripts/run_problem_adv.sh
 ```
 
